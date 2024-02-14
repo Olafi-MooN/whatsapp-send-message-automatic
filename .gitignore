@@ -1,0 +1,9 @@
+node_modules
+
+
+src/documents/csv/*
+!src/documents/csv/.gitkeep
+src/documents/*
+!src/documents/.gitkeep
+.wwebjs_auth
+.wwebjs_cache

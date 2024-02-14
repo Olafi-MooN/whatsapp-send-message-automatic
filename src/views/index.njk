@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+  </head>
+
+  <body class="flex justify-center items-center h-screen bg-[#121214]">
+
+    <div class="relative flex flex-col text-gray-700 bg-white shadow-md bg-clip-border rounded-xl p-4 max-w-[364px]">
+      <div class="relative m-auto overflow-hidden text-gray-700 bg-white bg-clip-border rounded-xl p-4">
+        <canvas id="qrcode"></canvas>
+      </div>
+      <div class="p-6">
+        <div class="flex items-center justify-between mb-2">
+          <p class="block font-sans text-ellipsis overflow-hidden antialiased font-medium leading-relaxed text-blue-gray-900 text-center">
+            SCANEAR QR-CODE
+          </p>
+        </div>
+        <p class="block font-sans text-wrap	 text-sm antialiased font-normal leading-normal text-gray-700 opacity-75 text-ellipsis overflow-hidden">
+          {{name}}
+        </p>
+      </div>
+      <div class="p-6 pt-0 mx-auto w-full">
+        <a href="/home2">
+          <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 w-full">
+            Continuar
+          </button>
+        </a>
+      </div>
+
+      <p class="text-center">Feito com 💖 por Alef Santos
+      </p>
+    </div>
+
+    <script type="text/javascript">
+      window.addEventListener("load", (event) => {
+        if ('no-qr-code' === "{{name}}") {
+          window
+            .location
+            .replace(window.location.origin + "/home2");
+        } else {
+          new QRious({element: document.getElementById("qrcode"), value: "{{name}}", size: '300'});
+        }
+      });
+    </script>
+  </body>
+
+</html>
